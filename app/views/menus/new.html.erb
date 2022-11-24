@@ -1,0 +1,17 @@
+<div class="card shadow-sm mb-5">
+  <div class="card-header bg-info text-light ">
+    <h1 class="text-center">New menu</h1>
+  </div>
+  <div class="card-body">
+    <%= render "form", menu: @menu %>
+
+<br>
+
+<div>
+  <%= link_to "Back to menus", menus_path, class:"btn btn-dark" %>
+</div>
+  </div>
+</div>
+
+
+

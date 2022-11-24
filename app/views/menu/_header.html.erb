@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">  
+  <%= link_to "Restaurant Menu", root_path, class:"navbar-brand"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class:"nav-link"%>
+      </li>
+
+  <!-- if user_signed_in? -->
+	<% if current_user %>
+    
+      <li class="nav-item">
+        <%= link_to "Add Menu", new_menu_path, class:"nav-link"%>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Show Menu", menus_path, class:"nav-link"%>
+      </li>
+
+      <li class="nav-item">
+        <%#= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link"%>
+        <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Edit Profile",  edit_user_registration_path, class:"nav-link"%>
+      </li>
+	  <!--####################################################-->
+	  <li class="nav-item navbar-brand">
+
+		<% if current_user.moderator? %>
+			 Hi moderator | <%= current_user.email %> 
+      
+      <% else %>
+
+     Hi <%= current_user.role %> | <%= current_user.email %>
+		<% end %>
+      </li>
+	   <!--####################################################-->
+	  
+
+  <!-- else-->
+      <% else %>
+
+      <li class="nav-item">
+        <%= link_to "Sign Up", new_user_registration_path, class:"nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign In", new_user_session_path, class:"nav-link"%>
+      </li>
+
+  <!--end-->
+  <% end %>
+     
+    </ul>
+    
+  </div>
+</nav>

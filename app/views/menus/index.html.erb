@@ -1,0 +1,25 @@
+
+<div class="jumbotron mb-5 shadow-sm bg-light shadow-sm">
+  <h1 class="display-4 text-center font-weight-bold ">Menu</h1>
+  <p class="lead">Our restaurant has<b> <%= Menu.public_count %></b> menus at the moment!</p>
+  <div id="menus">
+  <% @menus.each do |menu| %>
+  <% unless menu.archived? %>
+  <hr class="my-4">
+  
+    <%= render menu %>
+    <p>
+      <%= link_to "Show this menu", menu, class: "btn btn-secondary" %>
+    </p>
+  <% end %>
+  <%end%>
+</div>
+</div>
+
+
+
+<%= link_to "New menu", new_menu_path, class: "btn btn-primary mb-5" %>
+
+
+
+
