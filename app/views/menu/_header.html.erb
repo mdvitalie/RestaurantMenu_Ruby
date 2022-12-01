@@ -13,10 +13,11 @@
 
   <!-- if user_signed_in? -->
 	<% if current_user %>
-    
+    <% if current_user.admin? || current_user.moderator?  %>
       <li class="nav-item">
         <%= link_to "Add Menu", new_menu_path, class:"nav-link"%>
       </li>
+    <%end%>
 
       <li class="nav-item">
         <%= link_to "Show Menu", menus_path, class:"nav-link"%>
@@ -31,13 +32,12 @@
       </li>
 	  <!--####################################################-->
 	  <li class="nav-item navbar-brand">
-
 		<% if current_user.moderator? %>
 			 Hi moderator | <%= current_user.email %> 
       
       <% else %>
 
-     Hi <%= current_user.role %> | <%= current_user.email %>
+        Hi <%= current_user.role %> | <%= current_user.email %>
 		<% end %>
       </li>
 	   <!--####################################################-->

@@ -1,7 +1,8 @@
 class MenusController < ApplicationController
 
-  http_basic_authenticate_with name: "menu", password: "secret", except: [:index, :show]
   before_action :set_menu, only: %i[ show edit update destroy ]
+  #http_basic_authenticate_with name: "menu", password: "secret", except: [:index, :show]
+   before_action :authenticate_user!,  except: [:index, :show]
 
 
   # GET /menus or /menus.json
@@ -95,6 +96,6 @@ class MenusController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def menu_params
-      params.require(:menu).permit(:title, :body, :price, :status)
+      params.require(:menu).permit(:title, :body, :price, :user_id, :status)
     end
 end

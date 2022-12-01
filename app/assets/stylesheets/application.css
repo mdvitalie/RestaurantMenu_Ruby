@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /* #login, #sign_up{
+margin-top: 10rem;
+ } */
+ #container{
+ margin-top: 10rem;
+ }
