@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 class MenusController < ApplicationController
-
-  before_action :set_menu, only: %i[ show edit update destroy ]
-  #http_basic_authenticate_with name: "menu", password: "secret", except: [:index, :show]
-   before_action :authenticate_user!,  except: [:index, :show]
-
+  before_action :set_menu, only: %i[show edit update destroy]
+  # http_basic_authenticate_with name: "menu", password: "secret", except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /menus or /menus.json
   def index
@@ -41,7 +41,7 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to menu_url(@menu), notice: "Menu was successfully created." }
+        format.html { redirect_to menu_url(@menu), notice: 'Menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class MenusController < ApplicationController
   def update
     respond_to do |format|
       if @menu.update(menu_params)
-        format.html { redirect_to menu_url(@menu), notice: "Menu was successfully updated." }
+        format.html { redirect_to menu_url(@menu), notice: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -82,24 +82,25 @@ class MenusController < ApplicationController
 
     # redirect_to root_path, status: :see_other
     #===================================================
-    
-      respond_to do |format|
-      format.html { redirect_to menus_url, notice: "Menu was successfully destroyed." }
+
+    respond_to do |format|
+      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
       format.json { head :no_content }
       #===================================================
-      
+
       #===================================================
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_menu
-      @menu = Menu.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def menu_params
-      params.require(:menu).permit(:title, :body, :price, :user_id, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_menu
+    @menu = Menu.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def menu_params
+    params.require(:menu).permit(:title, :body, :price, :user_id, :status)
+  end
 end
