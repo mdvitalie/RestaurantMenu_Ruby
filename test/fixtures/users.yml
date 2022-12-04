@@ -11,6 +11,7 @@
 # column: value
 one:
   email: cat@gmail.com
-
+  # encrypted_password: 12345678
 two:
   email: cat@gmail.com
+  # encrypted_password: 12345678

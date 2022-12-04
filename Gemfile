@@ -85,3 +85,5 @@ end
 
 gem "devise", "~> 4.8"
 gem 'ffi', '~> 1.15', '>= 1.15.5'
+
+gem "ransack", "~> 3.2"

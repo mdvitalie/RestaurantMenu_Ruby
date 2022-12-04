@@ -7,12 +7,16 @@ class MenusController < ApplicationController
 
   # GET /menus or /menus.json
   def index
-    @menus = Menu.all
+    # @menus = Menu.all
+    @q = Menu.ransack(params[:q])
+    @menus = @q.result
   end
 
   # GET /menus/1 or /menus/1.json
   def show
     @menu = Menu.find(params[:id])
+    @q = Menu.ransack(params[:q])
+    @menus = @q.result
   end
 
   # GET /menus/new
