@@ -4,29 +4,30 @@
 <%= render @menu %>
 
 <div>
+  <% if current_user %>
+    <% if current_user.admin? %>
+        <%= link_to "Edit this menu", edit_menu_path(@menu), class: "btn btn-secondary" %> 
+        <%= link_to "Back to menus", menus_path, class: "btn btn-dark" %>
 
-<% if current_user.admin? %>
-    <%= link_to "Edit this menu", edit_menu_path(@menu), class: "btn btn-secondary" %> 
-    <%= link_to "Back to menus", menus_path, class: "btn btn-dark" %>
+        <%= button_to "Destroy this menu", @menu, method: :delete, class: "btn btn-danger mt-2" %>
 
-    <%= button_to "Destroy this menu", @menu, method: :delete, class: "btn btn-danger mt-2" %>
-
-  <% else %>
-    <%#= link_to "Back to menus", menus_path, class: "btn btn-dark" %>
-  <% end %>
-</div>
-</div>
-<hr>
-<h2>Comments</h2>
-<%= render @menu.comments %>
+      <% else %>
+        <%#= link_to "Back to menus", menus_path, class: "btn btn-dark" %>
+      <% end %>
+      <% end %>
+    </div>
+    </div>
+    <hr>
+    <h2>Comments</h2>
+    <%= render @menu.comments %>
 
 
 
-<div class="card mb-5">
-  <div class="card-header">
-    <h2>Add a comment:</h2>
-  </div>
-  <div class="card-body">
-   <%= render 'comments/form' %>
-  </div>
+  <div class="card mb-5">
+    <div class="card-header">
+      <h2>Add a comment:</h2>
+    </div>
+    <div class="card-body">
+    <%= render 'comments/form' %>
+    </div>
 </div>
