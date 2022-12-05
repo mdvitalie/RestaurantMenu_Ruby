@@ -6,3 +6,16 @@
    
   </div>
 </div>
+
+<div  >
+
+    <p class="text-center">
+    <%#= @data["weather"].first["main"] %> 
+    </p><br>
+    <p> <%#= Date.today.strftime("%A, %B-%d-%Y")%><p>
+    <p> <%= Date.today.strftime("%A, %d-%m-%Y")%><p>
+    <img src=" http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"></img>
+    <p><%= @data["weather"].first["main"]%></p>
+    <p><%= @data["weather"].first["description"]%></p>
+    <p><%= @data["main"]["temp"]%> F</p>
+</div>
