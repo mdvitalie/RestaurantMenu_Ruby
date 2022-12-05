@@ -5,7 +5,7 @@ class MenuController < ApplicationController
   def index
     #Weather API
     # url = "https://api.openweathermap.org/data/2.5/weather"
-    url = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=197128ae14d1b8c4d1779e83bd3c628e";  
+    url = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&units=metric&appid=197128ae14d1b8c4d1779e83bd3c628e";  
 
     uri = URI(url)
     res = Net::HTTP.get_response(uri)

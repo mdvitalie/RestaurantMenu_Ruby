@@ -20,3 +20,7 @@ margin-top: 10rem;
  #container{
  margin-top: 10rem;
  }
+
+ .weatherIcon{
+  width: 30px;
+ }

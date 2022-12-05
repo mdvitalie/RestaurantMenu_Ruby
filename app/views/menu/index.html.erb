@@ -9,13 +9,11 @@
 
 <div  >
 
-    <p class="text-center">
-    <%#= @data["weather"].first["main"] %> 
-    </p><br>
+   
     <p> <%#= Date.today.strftime("%A, %B-%d-%Y")%><p>
-    <p> <%= Date.today.strftime("%A, %d-%m-%Y")%><p>
-    <img src=" http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"></img>
+    <p class="date"> <%= Date.today.strftime("%A, %d-%m-%Y")%><p>
+    <img class="weatherIcon fas fa-xs" src=" http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"></img>
     <p><%= @data["weather"].first["main"]%></p>
     <p><%= @data["weather"].first["description"]%></p>
-    <p><%= @data["main"]["temp"]%> F</p>
+    <p><%= @data["main"]["temp"]%> <sup>o</sup>C</p>
 </div>
