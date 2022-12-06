@@ -3,8 +3,7 @@
 
     <%= Date.today.strftime("%A, %d-%m-%Y")%> 
     <img class="weatherIcon fas fa-xs" src=" http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"></img>
-    <%= @data["weather"].first["main"]%> 
-    <%= @data.dig(:name)%> 
+    <%= @data["weather"].first["main"]%>      
     <%= @data["weather"].first["description"]%> Temp: 
     <%= @data["main"]["temp"]%> <sup>o</sup>C 
 </div>
