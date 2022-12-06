@@ -1,20 +1,13 @@
-
-
-
+<!--Display weather-->
 <div class="weather">
+
     <%= Date.today.strftime("%A, %d-%m-%Y")%> 
     <img class="weatherIcon fas fa-xs" src=" http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"></img>
     <%= @data["weather"].first["main"]%> 
+    <%= @data.dig(:name)%> 
     <%= @data["weather"].first["description"]%> Temp: 
     <%= @data["main"]["temp"]%> <sup>o</sup>C 
 </div>
-
-<!--<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4 text-center">Welcome to our Restaurant</h1>
-   
-  </div>
-</div> -->
 
  <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center section-bg">
