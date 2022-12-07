@@ -1,10 +1,11 @@
 <!--Display weather-->
 <div class="weather">
 
+    <%= @data["name"]%> Ireland <br>
     <%= Date.today.strftime("%A, %d-%m-%Y")%> 
     <img class="weatherIcon fas fa-xs" src=" http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"></img>
     <%= @data["weather"].first["main"]%>      
-    <%= @data["weather"].first["description"]%> Temp: 
+    <%= @data["weather"].first["description"]%><br> Temp: 
     <%= @data["main"]["temp"]%> <sup>o</sup>C 
 </div>
 
