@@ -2,7 +2,7 @@
 
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
-    #The value of the users table
+    # The value of the users table
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ''
@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       ## Rememberable
       t.datetime :remember_created_at
-      t.integer :role, default: 0      
+      t.integer :role, default: 0
 
       t.timestamps null: false
     end

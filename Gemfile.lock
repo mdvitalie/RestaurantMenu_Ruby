@@ -275,7 +275,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
-  ransack (~> 3.2)
+  ransack
   rubocop
   rubocop-rails
   ruby_audit
