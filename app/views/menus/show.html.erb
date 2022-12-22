@@ -5,7 +5,7 @@
 
 <div>
   <% if current_user %>
-    <% if current_user.admin? %>
+    <% if current_user.admin? || current_user.moderator? %>
         <%= link_to "Edit this menu", edit_menu_path(@menu), class: "btn btn-secondary" %> 
         <%= link_to "Back to menus", menus_path, class: "btn btn-dark" %>
 

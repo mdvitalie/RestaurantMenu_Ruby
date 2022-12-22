@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-#Adds views to menus
+
+# Adds views to menus
 class DeviseCreateViews < ActiveRecord::Migration[7.0]
   def change
     create_table :views do |t|
