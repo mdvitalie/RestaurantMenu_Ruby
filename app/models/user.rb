@@ -18,8 +18,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   #=================================================================
 
-  # validates :email, presence: true,
-  # validates :encrypted_password, presence: true, length: { minimum: 10 }
+
   enum role: %i[user moderator admin]
   after_initialize :set_default_role, if: :new_record?
 

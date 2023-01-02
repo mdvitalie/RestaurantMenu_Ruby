@@ -3,12 +3,14 @@
 class CommentsController < ApplicationController
   # http_basic_authenticate_with name: 'user', password: 'secret', only: :destroy
 
+  # Create a comment
   def create
     @menu = Menu.find(params[:menu_id])
     @comment = @menu.comments.create(comment_params)
     redirect_to menu_path(@menu)
   end
 
+  # Destroy a comment
   def destroy
     @menu = Menu.find(params[:menu_id])
     @comment = @menu.comments.find(params[:id])
